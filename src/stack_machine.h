@@ -21,19 +21,20 @@
 
 // TODO: Uncomment operations from your variant!!
 #define PLUS_OP       // default
-//#define MINUS_OP      // variant 1
+#define MINUS_OP      // variant 1
 //#define MULT_OP       // variant 2
 //#define DIV_OP        // variant 3
 //#define CHOICE_OP     // variant 4
 //#define ASSIGN_OP     // variant 5
-//#define SIG_CHANGE_OP // variant 6
+#define SIG_CHANGE_OP // variant 6
 //#define INVER_OP      // variant 7
 //#define AND_OP        // variant 8
-//#define OR_OP         // variant 9
+#define OR_OP         // variant 9
 //#define POW_OP        // variant 10
 
 
 #include <map>
+#include <string>
 
 #include "int_stack.h"
 
@@ -97,8 +98,10 @@ public:
 
 #ifdef MINUS_OP
 class MinusOp : public IOperation {
-// TODO Implement virtual methods like in PlusOp class
-};
+public:
+    virtual int operation(char op, int a, int b, int c) override;
+    virtual Arity getArity() const override;
+}; // class MinusOp
 #endif
 
 #ifdef MULT_OP
@@ -127,8 +130,10 @@ class AssignOp : public IOperation {
 
 #ifdef SIG_CHANGE_OP
 class SigChangeOp : public IOperation {
-// TODO Implement virtual methods like in PlusOp class
-};
+public:
+    virtual int operation(char op, int a, int b, int c) override;
+    virtual Arity getArity() const override;
+}; // SigChangeOp
 #endif
 
 #ifdef INVER_OP
@@ -145,8 +150,10 @@ class AndOp : public IOperation {
 
 #ifdef OR_OP
 class OrOp : public IOperation {
-// TODO Implement virtual methods like in PlusOp class
-};
+public:
+    virtual int operation(char op, int a, int b, int c) override;
+    virtual Arity getArity() const override;
+}; // OrOp
 #endif
 
 #ifdef POW_OP
